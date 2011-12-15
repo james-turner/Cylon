@@ -16,15 +16,16 @@ class homeActions extends sfActions
 		$userInfo = $cF->getUserInfo();
 
 		$boxMapping = new BoxMapping();
-        $boxIP = $boxMapping->getBoxIp($cF->getUserId());
+		$this->boxIP = $boxMapping->getBoxIp($cF->getUserId());
 
-        $stb = new STB($boxIP);
+		if ($this->boxIP) {
+			$stb = new STB($this->boxIP);
 
-        $this->boxIP = $boxIP;
-        $this->channelId = $stb->getCurrentChannelId();
+			$this->channelId = $stb->getCurrentChannelId();
 
-		$epg = new EPG();
-        $this->channels = $epg->currentPlayingChannels();
+			$epg = new EPG();
+			$this->channels = $epg->currentPlayingChannels();
+		}
 	}
 
 	public function executePost(sfWebRequest $request)
