@@ -27,7 +27,7 @@ function searchUPnP(){
 
     $hostip   = $_SERVER["SERVER_ADDR"];
     $thisfile = $_SERVER["SCRIPT_FILENAME"];
-    $hostname = $_SERVER["HTTP_HOST"];
+    $hostname = isset($_SERVER["HTTP_HOST"]) ? $_SERVER["HTTP_HOST"] : '';
 
     //$filedir = substr($thisfile,0,strripos($thisfile,'discover'));  // Get the current directory name
     $filedir= '/var/www/upnp/services/';
@@ -117,7 +117,7 @@ function _processBox($arrOut) {
  * @return String.
  */
 function getUPnPDescriptions($intIPAddress){
-    $hostname 	= $_SERVER["HTTP_HOST"];
+    $hostname 	= isset($_SERVER["HTTP_HOST"]) ? $_SERVER["HTTP_HOST"] : '';
     $port 		= 49153;
     $timeout 	= 5;
     ini_set("user_agent","SKY");  // Set the user agent string

@@ -1490,4 +1490,14 @@ SOAPData;
     }
     //End Misc STB Functions
 
+    public function getCurrentChannelId()
+    {
+        $doc = new DOMDocument();
+        $doc->loadXML($this->GetMediaInfo());
+
+        $xpath = new DOMXPath($doc);
+        $nodeList = $xpath->query("//CurrentURI");
+        $channelData = parse_url($nodeList->item(0)->nodeValue);
+        return hexdec($channelData['host']);
+    }
 }

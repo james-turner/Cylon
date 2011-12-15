@@ -11,6 +11,9 @@ class homeActions extends sfActions
 			'next' => url_for('user/login', true)
 		));
 
+        $stb = new STB(sfConfig::get('app_stb_ip'));
+        $this->channelId = $stb->getCurrentChannelId();
+
 		// sample data from FB
 //		$userInfo = $cF->getUserInfo();
 	}
