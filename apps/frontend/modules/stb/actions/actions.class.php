@@ -24,16 +24,16 @@ class stbActions extends sfActions
 
 		$stb = new STB($boxIP);
 		$stb->ChannelChange($this->channelId);
-
-        $epg = new EPG();
-        $channels = $epg->currentPlayingChannels();
-        $info = $channels[$this->channelId];
-
-        $cF->postToWall(sprintf('%s is now watching "%s" on "%s"',
-            $userInfo['name'],
-            $info["now_playing"],
-            $info["name"]
-        ), url_for('@switch_channel?channelId='.$this->channelId, true));
+//
+//        $epg = new EPG();
+//        $channels = $epg->currentPlayingChannels();
+//        $info = $channels[$this->channelId];
+//
+//        $cF->postToWall(sprintf('%s is now watching "%s" on "%s"',
+//            $userInfo['name'],
+//            $info["now_playing"],
+//            $info["name"]
+//        ), url_for('@switch_channel?channelId='.$this->channelId, true));
 
         return $this->redirect('/dev.php' . '#' . $this->channelId);
 	}
