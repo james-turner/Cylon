@@ -16,4 +16,5 @@
 	<p>
 		<a href="#" class="button large orange">Associate your Sky account &#187;</a>
 	</p>
+
 <?php endif; ?>

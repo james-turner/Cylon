@@ -52,7 +52,7 @@ class homeActions extends sfActions
 
         $cF->postToWall($channel, $programme, url_for('@switch_channel?channelId='.$channelId, true), $img);
 
-		$this->redirect('home/index');
+		return $this->redirect('home/index');
 	}
 
 	public function executeBuy(sfWebRequest $request)
