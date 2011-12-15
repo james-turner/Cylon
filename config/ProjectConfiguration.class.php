@@ -4,6 +4,7 @@ require_once dirname(__FILE__).'/../lib/vendor/symfony/lib/autoload/sfCoreAutolo
 sfCoreAutoload::register();
 
 require_once dirname(__FILE__) . '/../lib/vendor/sky/STB.php';
+require_once dirname(__FILE__) . '/../lib/vendor/sky/EPG.php';
 
 class ProjectConfiguration extends sfProjectConfiguration
 {

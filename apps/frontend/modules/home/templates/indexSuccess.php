@@ -15,3 +15,11 @@ Hello everyone, this is the world! You're currently watching channel id: <?php e
 <p>
 	<a href="<?php echo $logoutUrl;?>">Logout</a>
 </p>
+
+
+<ul>
+    <?php foreach($channels as $id => $channel):?>
+    <li><a href="/channel/<?php echo $id ?>"><?php echo $channel["name"] ?></a>, Now playing: <?php echo $channel["now_playing"] ?></li>
+    <?php endforeach;?>
+
+</ul>
