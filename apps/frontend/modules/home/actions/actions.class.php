@@ -45,8 +45,11 @@ class homeActions extends sfActions
 
         $programme = $channels[$channelId]['now_playing'];
         $channel = $channels[$channelId]['name'];
+        $img = isset($channels[$channelId]['img'])
+            ? 'http://epgstatic.sky.com/epgdata/1.0/paimage/6/0/' . $channels[$channelId]['img']
+            : null;
 
-		$cF->postToWall($channel, $programme, url_for('@switch_channel?channelId='.$channelId, true));
+        $cF->postToWall($channel, $programme, url_for('@switch_channel?channelId='.$channelId, true), $img);
 
 		$this->redirect('home/index');
 	}

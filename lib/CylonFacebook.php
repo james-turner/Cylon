@@ -36,13 +36,19 @@ class CylonFacebook {
 		return $this->facebook->api('/'.$this->getUserId());
 	}
 
-	public function postToWall($channelTitle, $programmeName, $link)
+	public function postToWall($channelTitle, $programmeName, $link, $picture = null)
 	{
-		return $this->facebook->api('/'.$this->getUserId().'/feed', 'post', array(
-			'message' => sprintf('I am now watching %s on %s', $channelTitle, $programmeName),
-			'link' => $link,
-			'name' => sprintf("Watch %s on your TV", $programmeName),
-			'description' => self::DESCRIPTION
-		));
+        $params = array(
+            'message' => sprintf('I am now watching %s on %s', $channelTitle, $programmeName),
+            'link' => $link,
+            'name' => sprintf("Watch %s on your TV", $programmeName),
+            'description' => self::DESCRIPTION
+        );
+
+        if($picture) {
+            $params['picture'] = $picture;
+        }
+
+		return $this->facebook->api('/'.$this->getUserId().'/feed', 'post', $params);
 	}
 }
