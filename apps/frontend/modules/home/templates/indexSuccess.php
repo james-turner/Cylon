@@ -1,6 +1,12 @@
-You're currently watching
-"<?php echo $channels[$channelId]['now_playing']; ?>"
-on "<?php echo $channels[$channelId]['name']; ?>" channel.
+<h2>
+	You are currently watching <?php echo $channels[$channelId]['now_playing']; ?>
+	on <?php echo $channels[$channelId]['name']; ?>
+</h2>
+<p>
+	<a href="<?php echo url_for('home/post'); ?>" class="button large blue">Share on facebook &#187;</a>
+</p>
+
+<?php /*
 
 
 <p>
@@ -9,10 +15,6 @@ on "<?php echo $channels[$channelId]['name']; ?>" channel.
 	<?php } else { ?>
 		You don't have associated box.
 	<?php } ?>
-</p>
-
-<p>
-	<a href="<?php echo url_for('home/post'); ?>">Post to Wall</a>
 </p>
 
 <p>
@@ -26,3 +28,4 @@ on "<?php echo $channels[$channelId]['name']; ?>" channel.
     <?php endforeach;?>
 
 </ul>
+ */ ?>

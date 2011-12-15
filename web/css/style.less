@@ -1,0 +1,438 @@
+/*********************************/
+/***    STYLE SHEET BY DAN     ***/
+/*** inverseguitar@hotmail.com ***/
+/*********************************/
+
+/***************/
+/** VARIABLES **/
+
+/* colors */
+@black:#000;			
+@white:#FFF;
+@blue:#00ACEE;
+@darkBlue:darken(@blue, 15%);
+@red:#9D261D;
+@darkRed:darken(@red, 15%);
+@mainColor:@blue;
+@darkMainColor:@darkBlue;
+@linkColor:#0069d6;
+@linkColorHover:darken(@linkColor, 15);
+
+/* Fonts */
+@import url('http://fonts.googleapis.com/css?family=Voltaire.css');
+@headerFont: Voltaire, Arial, Helvetica, sans-serif;
+@paragraphFont: Arial, Helvetica, sans-serif;
+
+/* size */
+@navHeight:65px;		
+@footerHeight:100px;
+@maxWidth:700px;
+@minWidth:300px;
+@twoThirds:((@maxWidth/3)*2)-20;
+@oneThird:(@maxWidth/3)-20;
+
+/* z-index's */
+@navIndex:100;			
+@baseImage:1;
+@imageHover:5;
+
+/*********************/
+/** CLASS VARIABLES **/
+
+.transition(@time){
+	-webkit-transition: all (@time)s ease-out;  
+	-moz-transition: all (@time)s ease-out;
+	-ms-transition: all (@time)s ease-out; 
+	-o-transition: all (@time)s ease-out;
+	transition: all (@time)s ease-out; 
+}
+.gradient(@top, @bottom){
+	background:@top;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@top), to(@bottom));
+	background-image: -khtml-gradient(linear, left top, left bottom, from(@top), to(@bottom));
+	background: -moz-linear-gradient(top , @top, @bottom) repeat scroll 0 0 transparent;
+	background: -ms-linear-gradient(top , @top, @bottom) repeat scroll 0 0 transparent;
+	background: -o-linear-gradient(top , @top, @bottom) repeat scroll 0 0 transparent;
+	background: -webkit-linear-gradient(top , @top, @bottom) repeat scroll 0 0 transparent;
+	background: linear-gradient(top , @top, @bottom) repeat scroll 0 0 transparent;
+}
+.border-radius(@radius){
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;	
+}
+
+/******************/
+/** ELEMENT CODE **/
+
+* { 	
+	padding:0; 
+	margin:0;
+	border:0;
+}
+a {
+	color:@linkColor;
+	text-decoration:none;
+}
+a:hover {
+	color:@linkColorHover; 
+	text-decoration:none;
+	border-bottom:1px dotted @linkColorHover;
+}
+a:active {
+	color:@linkColorHover; 
+	text-decoration:none;
+	border-bottom:1px solid @linkColorHover;
+}
+html, body {
+	height: 100%;
+	width:100%; 
+	background:@white;
+}
+img { 
+    border:1px solid #1F1F1F; 
+    padding:4px;
+}
+input, textarea, select {
+	border:1px solid #999;
+	padding:4px;
+}
+textarea {
+	resize:vertical;
+}
+p, table { 
+	font-family:@paragraphFont;
+	font-size:12px;
+	color:#555; 
+	line-height:1.8em; 
+	padding:5px 10px 5px 0; 
+	margin:5px 10px 5px 0; 
+}
+ul {
+	list-style: none;
+}
+li { 
+	font-family:@paragraphFont;
+	font-size:12px;
+	color:#555; 
+	line-height:1.8em; 
+	padding:3px 5px; 
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family:@headerFont; 
+}
+h1 {
+	text-shadow: 1px 1px 3px darken(@white, 50%), 2px 2px 3px darken(@white, 50%);
+	font-size:36px;
+	float:left;
+	clear:both;
+	position:relative;
+}
+h2 {
+	color:darken(@white, 80%);
+	font-size:18px;
+	padding:0 0 10px 0;
+}
+h3 {
+	color:darken(@white, 80%);
+	font-size:16px;
+	padding:5px 0;
+}
+hr {
+	color: #666;
+	background-color: #666;
+	height: 1px;
+	clear:both;
+	margin:20px 0;
+}
+h3 small {
+	color:@white;
+	font-size:13px;
+}
+h2 small {
+	color:@darkMainColor;
+	font-size:12px;
+	margin-top:10px;
+}
+/*************/
+/** CLASSES **/
+
+.title h1 {
+}
+.logo h1 {
+	font-size:24px;
+	color: @white;
+	text-shadow: 1px 1px @mainColor, 2px 2px @mainColor;
+}
+.main {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto (@footerHeight - @footerHeight - @footerHeight); /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+	height: @footerHeight; /* .push must be the same height as .footer */
+	clear:both;
+}
+.footer {
+	background-color:@black;
+}
+.footer-content {
+	max-width:@maxWidth; 
+	min-width:@minWidth; 
+	margin: 0 auto;
+}
+.resize { 
+	max-width:@maxWidth; 
+	min-width:@minWidth;  
+	margin:0 auto;
+}
+.header_resize {
+	background: url('../images/header_bg.jpg') top repeat-x;
+	min-height:@navHeight;
+//	position:fixed;
+	width:100%;
+	z-index:@navIndex;
+}
+.nav-spacer{
+	min-height:(@navHeight + 10);
+}
+.header { 
+	max-width:@maxWidth; 
+	min-width:@minWidth; 
+	margin:0 auto; 
+}
+.header_blog { 
+	background: url(../images/bd.jpg) repeat; 
+	padding:10px 0 0 0; 
+	height:315px;
+}
+.logo {
+	padding:0; 
+	margin:4px 0 0 0;
+	border:0;
+	float:left;
+}
+.logo-text  {
+	color: @white;
+	text-shadow: 0px 1px 0px #374683;
+	font-family: arial, serif;
+	font-size:14px;
+	float:left;
+	clear:left;
+}
+.logo-img {
+	width:80px;
+	border:0;
+}
+.menu { 
+	padding:13px 0 0 0;  
+	float:right; 
+}
+.menu ul { 
+	text-align: right;  
+	list-style:none; 
+	border:0;
+	float:right;
+}
+.menu ul li { 
+	float:left; 
+	padding:0 5px; 
+}
+.menu ul li a { 
+	float:left; 
+	padding:12px 0; 
+	color:#fffefe; 
+	font:normal 12px Arial, Helvetica, sans-serif; 
+	text-decoration:none; 
+	text-transform:uppercase;
+	border: 0 !important;
+	.border-radius(3px);	
+	/* useful if you don't want a bg color from leaking outside the border: */   
+	-moz-background-clip: padding; 
+	-webkit-background-clip: padding-box; 
+	background-clip: padding-box; 
+	.transition(0.3);
+	padding:12px 9px !important; 
+	background:none; 	
+}
+.menu ul li a.active {  
+	background:@mainColor;
+	text-shadow: 1px 1px 3px #888;
+	.transition(0.3);
+}
+.menu ul li a.active:hover, .menu ul li a:hover {  	
+	.transition(0.3);
+	.gradient(@mainColor, @darkMainColor);
+}
+.menu ul li a.active:active, .menu ul li a:active {  
+	.gradient(@mainColor, @darkMainColor);
+	top: 1px;
+	-webkit-transform: translateY(1px); 
+	-moz-transform: translateY(1px); 
+}
+.body { 
+	padding:5px 0;
+	margin:0 auto; 
+	background:#fafafa; 
+	border-top:none; 
+}
+.body h2 { 
+	font:normal 20px Arial, Helvetica, sans-serif; color:#171717; 
+	padding:10px 5px 5px 5px; 
+}
+.body h3 { 
+	font:normal 16px Arial, Helvetica, sans-serif; 
+	color:#171717; 
+	padding:10px 5px 12px 5px; 
+	text-shadow: 1px 0 2px @mainColor;
+}
+.body p span { 
+	color:#247CA4; 
+	font: normal 11px Arial, Helvetica, sans-serif; 
+	line-height:1.8em; 
+	padding:5px 0; 
+}
+.body a { 
+	color:#247CA4; 
+	text-decoration:none; 
+	font: bold 12px Arial, Helvetica, sans-serif;
+}
+.body a:hover { 
+	text-decoration:none; 
+	border-bottom:1px dotted; 
+}
+.body a:active { 
+	text-decoration:none; 
+	border-bottom:1px solid; 
+}
+.column {
+	max-width:@maxWidth; 
+	min-width:@minWidth;  
+	margin:0 auto;
+}
+.one-third{
+	max-width:@oneThird;
+	min-width:(@oneThird - 50);
+	margin-bottom:20px;
+	margin-right:20px;
+}
+.two-thirds {
+	max-width:@twoThirds;
+	min-width:@minWidth;  
+}
+.right { 
+	float:right;
+}
+.left {
+	float:left;
+}
+.clear {
+	clear:left;
+}
+
+/******************/
+/** COOL BUTTONS **/
+
+.blue, .blue:visited {
+	.transition(0.3);
+	.gradient(@mainColor, @darkMainColor);
+    color: #FEF4E9;
+}
+.blue:hover, .blue:active  {
+	.transition(0.3);
+	.gradient(@darkMainColor, @mainColor);
+    color: #FEF4E9;
+}
+.orange, .orange:visited {
+	.transition(0.3);
+	.gradient(#FAA51A, #F47A20);
+    border: 1px solid #DA7C0C;
+    color: #FEF4E9;
+}
+.orange:hover {
+	.transition(0.3);
+	.gradient(#F88E11, #F06015);
+    color: #FEF4E9;
+}
+.orange:active {
+	.transition(0.3);
+	.gradient(#F47A20, #FAA51A);
+    color: #FCD3A5;
+}
+.button:active{
+	top: 1px;
+   	-webkit-transform: translateY(1px); 
+	-moz-transform: translateY(1px); 
+}
+.button:hover { 
+	background-color: #111; 
+	color: #fff; 
+}
+.small.button { 
+	font-size: 10px; 
+}
+.large.button { 
+	padding: 6px 16px 7px;
+}
+.very-large.button { 
+	font-size: 18px; 
+	padding: 10px 20px 10px;
+}
+.button { 
+	display: inline-block; 
+	padding: 5px 15px 6px; 
+	color: #fff !important; 
+	font-weight: bold; 
+	line-height: 1; 
+	text-decoration: none; 
+	border: 0 !important; /*to overwrite the link style */ 
+	.border-radius(10px);
+   /* .box-shadow:(0, 1px, 4px, #999999); */
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25); 
+	position: relative; 
+	cursor: pointer; 
+	overflow: visible; 
+	width: auto; 
+	margin-top:15px;
+	margin-right:5px;
+}
+.donate-link{ 
+	color:#F88E11;
+}
+
+/**************************/
+/** CUSTOM IMAGE GALLERY **/
+
+.image-gallery{
+	border:1px solid #333; 
+	margin:5px; 
+	padding:10px;
+	width:535px;
+	background-color:#FFF;
+}
+.expand-image {
+	position:relative;
+	-moz-transform: scale(1);
+	-o-transform: scale(1);
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	display:inline;
+	padding:2px;
+	background-color:#FFF;
+	border:1px solid #CCC;
+	margin:8px;
+	width:150px; 				 /* needs to be 2/3 of the width of the thumbnail */
+	z-index:@baseImage;
+}
+.expand-image:hover {
+	-moz-transform: scale(1.5);  /* makes the thumbnail fullsize on hover */
+	-o-transform: scale(1.5);
+	-webkit-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	transform: scale(1.5);
+	.transition(0.4);
+	z-index:@imageHover;
+	border:1px solid #222;
+}

@@ -12,9 +12,10 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets: [ style.less: { rel: "stylesheet/less"} ]
 
-  javascripts:    []
+  javascripts:
+    - less-1.1.5.min.js
 
   has_layout:     true
   layout:         layout
