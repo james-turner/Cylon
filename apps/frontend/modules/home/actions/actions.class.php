@@ -16,7 +16,6 @@ class homeActions extends sfActions
 		$userInfo = $cF->getUserInfo();
 
 		$boxMapping = new BoxMapping();
-
         $boxIP = $boxMapping->getBoxIp($cF->getUserId());
 
         $stb = new STB($boxIP);
@@ -24,11 +23,8 @@ class homeActions extends sfActions
         $this->boxIP = $boxIP;
         $this->channelId = $stb->getCurrentChannelId();
 
-		$this->boxIP = $boxMapping->getBoxIp($cF->getUserId());
-
-        $epg = new EPG();
+		$epg = new EPG();
         $this->channels = $epg->currentPlayingChannels();
-
 	}
 
 	public function executePost(sfWebRequest $request)
@@ -36,7 +32,25 @@ class homeActions extends sfActions
 		sfContext::getInstance()->getConfiguration()->loadHelpers(array('Url'));
 
 		$cF = new CylonFacebook();
-		$cF->postToWall('Random message '.rand(), url_for('home/index', true));
+        $userInfo = $cF->getUserInfo();
+
+        $boxMapping = new BoxMapping();
+        $boxIP = $boxMapping->getBoxIp($cF->getUserId());
+
+        $stb = new STB($boxIP);
+        $channelId = $stb->getCurrentChannelId();
+
+        $epg = new EPG();
+        $channels = $epg->currentPlayingChannels();
+
+        $programme = $channels[$channelId]['now_playing'];
+        $channel = $channels[$channelId]['name'];
+
+		$cF->postToWall(sprintf('%s is now watching "%s" on "%s"',
+            $userInfo['name'],
+            $programme,
+            $channel
+        ), url_for('home/index', true));
 
 		$this->redirect('home/index');
 	}

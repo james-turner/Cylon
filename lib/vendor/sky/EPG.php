@@ -23,7 +23,6 @@ class EPG {
 
         if(file_exists($this->store)){
             $json = json_decode(file_get_contents($this->store), true);
-            var_dump($json);
             if($json !== false){
                 self::$epg = $json;
             }

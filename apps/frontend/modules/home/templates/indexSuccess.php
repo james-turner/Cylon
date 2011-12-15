@@ -1,4 +1,7 @@
-Hello everyone, this is the world! You're currently watching channel id: <?php echo $channelId; ?>
+You're currently watching
+"<?php echo $channels[$channelId]['now_playing']; ?>"
+on "<?php echo $channels[$channelId]['name']; ?>" channel.
+
 
 <p>
 	<?php if (null !== $boxIP) { ?>
