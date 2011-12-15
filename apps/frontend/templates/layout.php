@@ -36,7 +36,7 @@
 			<?php echo $sf_content ?>
 		</div>
 		<div class="one-third right">
-			<h4>Top Shared Sky Content</h4>
+			<h4>You're friends are watching</h4>
 			<ul>
 				<li>Coronation Street - 500</li>
 				<li>Coronation Street - 400</li>
