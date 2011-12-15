@@ -50,8 +50,13 @@ class homeActions extends sfActions
             $userInfo['name'],
             $programme,
             $channel
-        ), url_for('home/index', true));
+        ), url_for('@switch_channel?channelId='.$channelId, true));
 
 		$this->redirect('home/index');
+	}
+
+	public function executeBuy(sfWebRequest $request)
+	{
+
 	}
 }
