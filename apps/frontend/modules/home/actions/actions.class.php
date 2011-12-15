@@ -46,11 +46,7 @@ class homeActions extends sfActions
         $programme = $channels[$channelId]['now_playing'];
         $channel = $channels[$channelId]['name'];
 
-		$cF->postToWall(sprintf('%s is now watching "%s" on "%s"',
-            $userInfo['name'],
-            $programme,
-            $channel
-        ), url_for('@switch_channel?channelId='.$channelId, true));
+		$cF->postToWall($channel, $programme, url_for('@switch_channel?channelId='.$channelId, true));
 
 		return $this->redirect('home/index');
 	}

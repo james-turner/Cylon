@@ -5,8 +5,7 @@ class CylonFacebook {
 	private $facebook = null;
 
 	const PERMISSIONS = 'email,publish_stream,user_birthday,user_about_me,user_hometown';
-	const NAME = 'Cyclon BSKyB APP';
-	const DESCRIPTION = 'Sky channel checking-in!';
+	const DESCRIPTION = 'Sky share program';
 
 	public function __construct()
 	{
@@ -37,12 +36,12 @@ class CylonFacebook {
 		return $this->facebook->api('/'.$this->getUserId());
 	}
 
-	public function postToWall($message, $link)
+	public function postToWall($channelTitle, $programmeName, $link)
 	{
 		return $this->facebook->api('/'.$this->getUserId().'/feed', 'post', array(
-			'message' => $message,
+			'message' => sprintf('I am now watching %s on %s', $channelTitle, $programmeName),
 			'link' => $link,
-			'name' => self::NAME,
+			'name' => sprintf("Watch %s on your TV", $programmeName),
 			'description' => self::DESCRIPTION
 		));
 	}
