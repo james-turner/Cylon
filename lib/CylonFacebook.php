@@ -39,7 +39,7 @@ class CylonFacebook {
 	public function postToWall($channelTitle, $programmeName, $link)
 	{
 		return $this->facebook->api('/'.$this->getUserId().'/feed', 'post', array(
-			'message' => sprintf('I am now watching %s on %s', $programmeName, $channelTitle),
+			'message' => sprintf('is now watching %s on %s', $programmeName, $channelTitle),
 			'link' => $link,
 			'name' => sprintf("Watch %s on your TV", $programmeName),
 			'description' => self::DESCRIPTION
