@@ -1,1 +1,1 @@
-<p><a class="very-large center blue button" href="<?php echo $loginUrl;?>">Login</a></p>
+<a href="<?php echo $loginUrl;?>">Login</a>
