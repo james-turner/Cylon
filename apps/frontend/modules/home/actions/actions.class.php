@@ -54,4 +54,9 @@ class homeActions extends sfActions
 
 		$this->redirect('home/index');
 	}
+
+	public function executeBuy(sfWebRequest $request)
+	{
+
+	}
 }
