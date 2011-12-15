@@ -20,11 +20,14 @@ class EPG {
     public function __construct(){
 
         $this->store = dirname(__FILE__). "/../../../cache/epg.json";
-
-        if(file_exists($this->store)){
-            $json = json_decode(file_get_contents($this->store), true);
-            if($json !== false){
-                self::$epg = $json;
+        $modified = filemtime($this->store);
+        if($modified){
+            touch($this->store);
+            if((strtotime('NOW') - $modified) > (5 * 60)){
+                $json = json_decode(file_get_contents($this->store), true);
+                if($json !== false){
+                    self::$epg = $json;
+                }
             }
         }
     }
