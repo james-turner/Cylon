@@ -1,24 +1,27 @@
 <?php
 
-/**
- * home actions.
- *
- * @package    frontend
- * @subpackage home
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
- */
 class homeActions extends sfActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
-  public function executeIndex(sfWebRequest $request)
-  {
+	public function executeIndex(sfWebRequest $request)
+	{
+		$cF = new CylonFacebook();
+		$fb = $cF->getFacebook();
+		sfContext::getInstance()->getConfiguration()->loadHelpers(array('Url'));
+		$this->logoutUrl = $fb->getLogoutUrl(array(
+			'next' => url_for('user/login', true)
+		));
 
+		// sample data from FB
+//		$userInfo = $cF->getUserInfo();
+	}
 
+	public function executePost(sfWebRequest $request)
+	{
+		sfContext::getInstance()->getConfiguration()->loadHelpers(array('Url'));
 
-  }
+		$cF = new CylonFacebook();
+		$cF->postToWall('Random message '.rand(), url_for('home/index', true));
+
+		$this->redirect('home/index');
+	}
 }

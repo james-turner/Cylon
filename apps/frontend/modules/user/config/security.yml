@@ -1,2 +1,5 @@
 login:
   is_secure: false
+
+afterLogin:
+  is_secure: false
