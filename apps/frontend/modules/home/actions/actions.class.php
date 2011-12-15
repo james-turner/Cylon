@@ -16,6 +16,9 @@ class homeActions extends sfActions
 
 		// sample data from FB
 //		$userInfo = $cF->getUserInfo();
+
+		$boxMapping = new BoxMapping();
+		$this->boxIP = $boxMapping->getBoxIp($cF->getUserId());
 	}
 
 	public function executePost(sfWebRequest $request)
