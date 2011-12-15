@@ -79,7 +79,7 @@ class EPG {
         }
 
         // store it!
-        //file_put_contents($this->store, json_encode(self::$epg));
+        file_put_contents($this->store, json_encode(self::$epg));
 
         return self::$epg;
 
