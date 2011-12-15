@@ -86,6 +86,3 @@ class EPG {
     }
 
 }
-
-$epg = new EPG();
-var_dump($epg->currentPlayingChannels());
