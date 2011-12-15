@@ -11,8 +11,8 @@ class homeActions extends sfActions
 			'next' => url_for('user/login', true)
 		));
 
-		// sample data from FB
-//		$userInfo = $cF->getUserInfo();
+		$boxMapping = new BoxMapping();
+		$this->boxIP = $boxMapping->getBoxIp($cF->getUserId());
 	}
 
 	public function executePost(sfWebRequest $request)

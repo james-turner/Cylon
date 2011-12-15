@@ -1,6 +1,14 @@
 Hello everyone, this is the world!
 
 <p>
+	<?php if (null !== $boxIP) { ?>
+		Your box IP is: <?php echo $boxIP; ?>
+	<?php } else { ?>
+		You don't have associated box.
+	<?php } ?>
+</p>
+
+<p>
 	<a href="<?php echo url_for('home/post'); ?>">Post to Wall</a>
 </p>
 
