@@ -181,7 +181,8 @@ function getUPnPDescriptions($intIPAddress){
     }
     else {
         echo "<h3>Error: Cannot connect to $targetip</h3>Error code: $errno - $errstr<br />";
-        exit;
+        //exit;
+        throw new Exception();
     }
 
     return _processBox($arrResult);

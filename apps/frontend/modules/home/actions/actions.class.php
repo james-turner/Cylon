@@ -52,7 +52,7 @@ class homeActions extends sfActions
             $channel
         ), url_for('@switch_channel?channelId='.$channelId, true));
 
-		$this->redirect('home/index');
+		return $this->redirect('home/index');
 	}
 
 	public function executeBuy(sfWebRequest $request)

@@ -22,7 +22,7 @@ on "<?php echo $channels[$channelId]['name']; ?>" channel.
 
 <ul>
     <?php foreach($channels as $id => $channel):?>
-    <li><a href="<?php echo url_for('@switch_channel?channelId='.$id); ?>"><?php echo $channel["name"] ?></a>, Now playing: <?php echo $channel["now_playing"] ?></li>
+    <li><a href="/dev.php#<?php echo $id?>"></a><a href="<?php echo url_for('@switch_channel?channelId='.$id) ."#$id"; ?>"><?php echo $channel["name"] ?></a>, Now playing: <?php echo $channel["now_playing"] ?></li>
     <?php endforeach;?>
 
 </ul>
