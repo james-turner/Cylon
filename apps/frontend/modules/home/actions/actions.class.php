@@ -32,7 +32,25 @@ class homeActions extends sfActions
 		sfContext::getInstance()->getConfiguration()->loadHelpers(array('Url'));
 
 		$cF = new CylonFacebook();
-		$cF->postToWall('Random message '.rand(), url_for('home/index', true));
+        $userInfo = $cF->getUserInfo();
+
+        $boxMapping = new BoxMapping();
+        $boxIP = $boxMapping->getBoxIp($cF->getUserId());
+
+        $stb = new STB($boxIP);
+        $channelId = $stb->getCurrentChannelId();
+
+        $epg = new EPG();
+        $channels = $epg->currentPlayingChannels();
+
+        $programme = $channels[$channelId]['now_playing'];
+        $channel = $channels[$channelId]['name'];
+
+		$cF->postToWall(sprintf('%s is now watching "%s" on "%s"',
+            $userInfo['name'],
+            $programme,
+            $channel
+        ), url_for('home/index', true));
 
 		$this->redirect('home/index');
 	}
