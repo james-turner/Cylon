@@ -11,14 +11,17 @@ class homeActions extends sfActions
 			'next' => url_for('user/login', true)
 		));
 
-        $stb = new STB(sfConfig::get('app_stb_ip'));
-        $this->channelId = $stb->getCurrentChannelId();
 
 		// sample data from FB
-//		$userInfo = $cF->getUserInfo();
+		$userInfo = $cF->getUserInfo();
 
 		$boxMapping = new BoxMapping();
-		$this->boxIP = $boxMapping->getBoxIp($cF->getUserId());
+        $boxIP = $boxMapping->getBoxIp($cF->getUserId());
+
+        $stb = new STB($boxIP);
+
+        $this->boxIP = $boxIP;
+        $this->channelId = $stb->getCurrentChannelId();
 	}
 
 	public function executePost(sfWebRequest $request)
