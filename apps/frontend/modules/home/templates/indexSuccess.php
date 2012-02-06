@@ -1,5 +1,8 @@
 <?php if ($boxIP) { ?>
 
+<?php if(isset($channels[$channelId]['img'])): ?>
+    <img src="http://epgstatic.sky.com/epgdata/1.0/paimage/6/0/<?php echo $channels[$channelId]['img']; ?>" style="float:left"/>
+<?php endif; ?>
 <h2>
 	You are currently watching <?php echo $channels[$channelId]['now_playing']; ?>
 	on <?php echo $channels[$channelId]['name']; ?>

@@ -11,7 +11,7 @@ class EPG {
 
     private $channel_list_uri = 'http://epgservices.sky.com/5.1.1/api/2.1/region/json/4097/1/';
 
-    private $channel_info_uri = 'http://epgservices.sky.com/5.1.1/api/2.1/channel/json/{channel_ids}/now/n/1';
+    private $channel_info_uri = 'http://epgservices.sky.com/5.1.1/api/2.1/channel/json/{channel_ids}/now/n/4';
 
     private static $epg = array();
 
